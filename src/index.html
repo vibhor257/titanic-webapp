@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="Heading"><b>Titanic Survival</b></h1>
+    <p><b>This survival forecasting model is based on a Machine Learning Algorithm.</b></p>
+    <div class="input">
+        <h3>Enter the following details</h3>       
+        <label for="Pclass">Enter your Class:</label>
+        <input type="number" id="Pclass" placeholder="Class" required>
+        <br>
+        <label for="Age">Enter your Age:</label>
+        <input type="number" id="Age" placeholder="Age" required>
+        <br>
+        <label for="Sex">Enter your Sex:</label>
+        <select id="Sex" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <br>
+        <label for="Fare">Enter your Fare:</label>
+        <input type="number" id="Fare" placeholder="Fare" step="0.01" required>
+        <br>
+        <button id="submit-button"><b>Submit</b></button>
+    </div>
+    <div id="output-box"></div>
+
+    <script>
+        document.getElementById("submit-button").addEventListener("click", async function() {
+            const Pclass = document.getElementById("Pclass").value;
+            const Age = document.getElementById("Age").value;
+            const Sex = document.getElementById("Sex").value;
+            const Fare = document.getElementById("Fare").value;
+
+            const data = { Pclass, Sex, Age, Fare };
+
+            try {
+                const response = await fetch("http://127.0.0.1:8000/predict", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                document.getElementById("output-box").innerHTML = `
+                    <p>Prediction: ${result["Survived Or Died"]}</p>
+                    <p>Document ID: ${result["Document ID"]}</p>
+                `;
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("output-box").innerHTML = `
+                    <p>There was an error processing your request. Please try again.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

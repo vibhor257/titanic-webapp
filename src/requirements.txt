@@ -1,0 +1,7 @@
+pymongo==4.0.1
+flask-cors
+numpy
+# Add any other dependencies you might have
+Flask==2.2.2  # Specify a compatible version of Flask
+Werkzeug==2.2.3  # Specify a compatible version of Werkzeug
+scikit-learn

@@ -1,0 +1,55 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Flask-specific
+instance/
+*.db
+*.sqlite3
+
+# Python virtual environment
+env/
+src/.venv
+src/.virtual_documents
+src/py_env_titanic
+venv/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.pid
+
+# Ignore IDE and editor-specific directories
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Config files
+config.py
+.env
+.env.*
+
+# Static files
+staticfiles/
+media/
+
+# Compiled files
+*.so
+*.o
+*.a
+*.out
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# User-specific
+*.secret

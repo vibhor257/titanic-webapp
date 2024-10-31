@@ -1,0 +1,21 @@
+
+#button{
+    color: red;
+ }
+ html, body {
+     height: 100%; 
+     margin: 0; 
+     background-size: cover;
+     background-color: #A0DEFF;
+ }
+ #output-box {
+     width: 100px;
+     height: 50px;
+     border: 1px solid #ccc;
+     background-color: #f9f9f9;
+     margin-top: 20px;
+     padding: 10px;
+     text-align: center;
+     line-height: 80px;
+     font-size: 18px;
+ }
